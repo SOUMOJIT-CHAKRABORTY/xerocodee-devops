@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rails-app-deployment
+spec:
+  replicas: 3 # Number of pods
+  selector:
+    matchLabels:
+      app: rails-app
+  template:
+    metadata:
+      labels:
+        app: rails-app
+    spec:
+      containers:
+        - name: rails-app
+          image: todo_list-wepapp:latest
+          ports:
+            - containerPort: 3000 # Port

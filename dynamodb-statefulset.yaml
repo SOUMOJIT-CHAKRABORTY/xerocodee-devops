@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: dynamodb-statefulset
+spec:
+  serviceName: dynamodb
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dynamodb
+  template:
+    metadata:
+      labels:
+        app: dynamodb
+    spec:
+      containers:
+        - name: dynamodb
+          image: amazon/dynamodb-local # Image for DynamoDB
+          ports:
+            - containerPort: 8000 # Port DynamoDB is running on
+          volumeMounts:
+            - name: dynamodb-data
+              mountPath: /data # Mount path for DynamoDB data
+  volumeClaimTemplates:
+    - metadata:
+        name: dynamodb-data
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        storageClassName: standard
+        resources:
+          requests:
+            storage: 1Gi
