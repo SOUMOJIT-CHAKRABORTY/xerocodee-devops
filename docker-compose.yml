@@ -1,0 +1,17 @@
+version: "3"
+services:
+  webapp:
+    build:
+      context: .
+      dockerfile: Dockerfile # Dockerfile for the Rails app
+    ports:
+      - "3000:3000" #  Rails app's port to the host
+    depends_on:
+      - dynamodb
+    environment:
+      - DYNAMODB_LOCAL_ENDPOINT=http://dynamodb:8000 # DynamoDB service connection
+
+  dynamodb:
+    image: amazon/dynamodb-local
+    ports:
+      - "8000:8000"
