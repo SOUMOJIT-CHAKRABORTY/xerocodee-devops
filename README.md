@@ -21,17 +21,19 @@ Things you may want to cover:
 
 * Deployment instructions
 
-### docker compose up
+```
+docker compose up
   
-### minikube start
+ minikube start
 
-### kubectl create namespace argcd
+ kubectl create namespace argcd
 
-### kubectl apply -f rails-app_deployment.yml
+ kubectl apply -f rails-app_deployment.yml
 
-### kubectl apply -f dynamodb-statefulset.yaml
+ kubectl apply -f dynamodb-statefulset.yaml
 
-### kubectl apply -f argocd-application.yml
+ kubectl apply -f argocd-application.yml
 
-### kubectl port-forward svc/argocd-server -n argocd 8080:443 [this will start the argocd gui on port localhost:8080]
+ kubectl port-forward svc/argocd-server -n argocd 8080:443 [this will start the argocd gui on port localhost:8080]
+```
   
