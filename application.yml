@@ -6,7 +6,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/SOUMOJIT-CHAKRABORTY/xerocodee-devops
-    path: /app
+    path: /
     targetRevision: main # or specify a specific branch/tag/commit
   destination:
     server: "https://kubernetes.default.svc"
