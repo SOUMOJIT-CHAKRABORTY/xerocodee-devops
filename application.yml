@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: rails-app
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/SOUMOJIT-CHAKRABORTY/xerocodee-devops
+    path: /app
+    targetRevision: main # or specify a specific branch/tag/commit
+  destination:
+    server: "https://kubernetes.default.svc"
+    namespace: argcd
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
